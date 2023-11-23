@@ -34,3 +34,23 @@ read.shapes <- function(file){
   return(shape)
 
 }
+
+write.output<-function(basename_string = "15000mVSample00", data.folder = 'data'){
+  files <- dir(data.folder, full.names = TRUE)
+  file <- files[basename(files) == paste0(basename_string,'.log')]
+  log <- read.log(file)
+  #load centroids and bounding boxes
+  file <- files[ basename(files) == paste0(basename_string,'_centroid.csv') ]
+  cent <- read.centroid(file)
+  file <- files[basename(files) == paste0(basename_string,'.csv') ]
+  dat <- read.table(file, sep=',', header=TRUE)
+
+  dat <- clean.bb(dat, cent)
+  dat <- dat[!dat$remove,]
+
+  vel <- get.velocity(dat)
+
+  write.table(log, file=paste0('processed/', basename_string,'_timestamps.csv'), sep=',', row.names = FALSE)
+  write.table(vel, file=paste0('processed/', basename_string,'_behavior.csv'), sep=',', row.names = FALSE)
+
+}
