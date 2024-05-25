@@ -54,3 +54,5 @@ write.output<-function(basename_string = "15000mVSample00", data.folder = 'data'
   write.table(vel, file=paste0('processed/', basename_string,'_behavior.csv'), sep=',', row.names = FALSE)
 
 }
+
+

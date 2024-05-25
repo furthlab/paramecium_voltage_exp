@@ -84,3 +84,37 @@ polygon.for.event(log, col='lightblue', ylim=c(10.2, 10.6))
 par(xpd=FALSE)
 
 }
+
+
+calculateAverageVelocity <- function(log_df, tracking_df, event_type, add.onset = 0, add.offset = 0) {
+  unique_trials <- as.integer( na.omit( unique(log_df$trial) ) )
+  avg_velocities <- numeric(length(unique_trials))  # Vector to store average velocities for each trial
+
+  for (i in seq_along(unique_trials)) {
+    trial <- unique_trials[i]
+
+    # Filter log_df for the current trial and event type
+    trial_data <- log_df[log_df$stimulus == event_type, ]
+
+    # Find the onset and offset frames for each unique US event
+    onsets <- trial_data$frame[seq(1, length(trial_data$frame), by=2)]
+    offsets <- trial_data$frame[seq(2, length(trial_data$frame), by=2)]  # Offset is the frame before the next event or the last frame
+
+    # Extract velocities between onset and offset for each unique US event
+    event_velocities <- c()
+    for (j in seq_along(onsets)) {
+      onset_frame <- onsets[j]
+      offset_frame <- offsets[j]
+
+      # Extract velocities for the frames in between onset and offset
+      velocities <- tracking_df$velocity[ (tracking_df$frame >= (onset_frame - (add.onset/30)  ) ) & (tracking_df$frame <= (offset_frame - (add.offset/30) )) ]
+      velocities <- mean(velocities, na.rm = TRUE)
+      # Append velocities to the vector
+      event_velocities <- c(event_velocities, velocities)
+    }
+
+    # Calculate the average velocity for the trial
+  }
+
+  return(event_velocities)
+}
