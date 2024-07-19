@@ -2,11 +2,9 @@ ret.poly<-function(dat){
   poly <- list( x = rep(c(dat$xmin, dat$xmax), each=2), y = c(dat$ymin, dat$ymax, dat$ymax, dat$ymin) )
   return(poly)
 }
-
 boundbox <- function(dat, ...){
   polygon(ret.poly(dat), ... )
 }
-
 cent.in.bb <- function(dat, cent){
   inside<-rep(FALSE, length(unique(dat$ID)))
   for(i in unique(dat$ID)){
