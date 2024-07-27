@@ -51,8 +51,6 @@ def sort(df):
     for frame_id, group in grouped:
         print(group.head())
 
-
-
 if __name__ == "__main__":
     args = get_args()
     print(os.getcwd())
