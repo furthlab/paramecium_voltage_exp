@@ -60,6 +60,7 @@ def split_frame(df):
         group.to_csv(filename, index=False)
         print(f'Saved {filename}')
 
+
 if __name__ == "__main__":
     args = get_args()
     print(os.getcwd())
