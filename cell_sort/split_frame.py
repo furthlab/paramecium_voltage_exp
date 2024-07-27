@@ -53,5 +53,16 @@ if __name__ == "__main__":
     experiment_behavior_csv = args.input_dir + args.experiment + '_behavior.csv'
     print(experiment_behavior_csv)
     df = pd.read_csv(experiment_behavior_csv)
-    # Display the first few rows of the DataFrame to verify loading
-    print(df.head())
+
+    # Group by the 'frame' column
+    grouped = df.groupby('frame')
+
+    os.makedirs(args.split_dir, exist_ok=True)
+
+    # Iterate through each group and save to a separate CSV file
+    # for frame_id, group in grouped:
+    #    # Create a filename for each frame group
+    #    filename = f'frame_{frame_id}.csv'
+    #    # Save the group to a CSV file
+    #    group.to_csv(filename, index=False)
+    #    print(f'Saved {filename}')
