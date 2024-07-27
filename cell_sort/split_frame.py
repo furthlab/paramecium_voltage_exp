@@ -10,6 +10,7 @@ import logging
 import time
 import os
 import re
+import pandas as pd
 
 def logger_setup():
     """ logger_setup
@@ -39,7 +40,7 @@ def logger_setup():
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--experiment', type=str, default='1000mV_Sample00',help='directory of to be split files', dest='input_dir')
+    parser.add_argument('--experiment', type=str, default='1000mV_Sample00',help='directory of to be split files', dest='experiment')
     parser.add_argument('--input-dir', type=str, default='../processed/',help='directory of to be split files', dest='input_dir')
     parser.add_argument('--split-dir', type=str, default='../split_frame/',help='directory to split files', dest='split_dir')
     return parser.parse_args()
@@ -49,3 +50,8 @@ if __name__ == "__main__":
     print(os.getcwd())
     out_path = args.split_dir
     input_path = args.input_dir
+    experiment_behavior_csv = args.input_dir + args.experiment + '_behavior.csv'
+    print(experiment_behavior_csv)
+    df = pd.read_csv(experiment_behavior_csv)
+    # Display the first few rows of the DataFrame to verify loading
+    print(df.head())
