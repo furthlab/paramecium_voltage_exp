@@ -48,18 +48,9 @@ def get_args():
 def sort(df):
     # Group by the 'frame' column
     grouped = df.groupby('frame')
-    args.split_dir = args.split_dir + args.experiment + '/'
-    print(args.split_dir)
-    os.makedirs(args.split_dir, exist_ok=True)
-    print(grouped.head())
-    # Iterate through each group and save to a separate CSV file
     for frame_id, group in grouped:
-        # Create a filename for each frame group
-        filename = f'frame_{frame_id}.csv'
-        # filename = osp.join(args.split_dir, filename)
-        # Save the group to a CSV file
-        # group.to_csv(filename, index=False)
-        # print(f'show {filename}')
+        print(group.head())
+
 
 
 if __name__ == "__main__":
@@ -68,6 +59,5 @@ if __name__ == "__main__":
     out_path = args.split_dir
     input_path = args.input_dir
     experiment_behavior_csv = args.input_dir + args.experiment + '_behavior.csv'
-    # print(experiment_behavior_csv)
     df = pd.read_csv(experiment_behavior_csv)
     sort(df)
