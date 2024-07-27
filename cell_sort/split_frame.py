@@ -43,14 +43,6 @@ def get_args():
     parser.add_argument('--split-dir', type=str, default='../split_frame',help='directory to split files', dest='split_dir')
     return parser.parse_args()
 
-def save_lists_to_files(list_of_lists, output_path):
-    os.makedirs(output_path, exist_ok=True)
-    for i, lst in enumerate(list_of_lists):
-        file_name = os.path.join(output_path, f'concept_{i}.json')
-        with open(file_name, 'w') as f:
-            json.dump(lst, f, indent=4)
-        print(f'Saved concept {i} to {file_name}')
-
 if __name__ == "__main__":
     args = get_args()
     print(os.getcwd())
