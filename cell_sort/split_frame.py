@@ -18,7 +18,7 @@ def logger_setup():
         : logger
     """
     # create logger
-    logger = logging.getLogger('Cognitive Bench Concept Split')
+    logger = logging.getLogger('Split into each frame')
     logger.setLevel(logging.CRITICAL)
     # create file handler which logs even debug messages
     log_name = '../log/{}.log'.format(time.strftime('%Y-%m-%d-%H-%M'))
