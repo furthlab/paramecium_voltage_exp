@@ -48,13 +48,16 @@ def get_args():
 def sort(df):
     # Group by the 'frame' column
     grouped = df.groupby('frame')
+    example_data_set = os.getcwd() + '/example_group/'
+    os.makedirs(example_data_set, exist_ok=True)
     for frame_id, group in grouped:
-        print(group.head())
+        filename = f'frame_{frame_id}.csv'
+        group.to_csv(example_data_set + filename, index=False)
 
 if __name__ == "__main__":
     args = get_args()
     print(os.getcwd())
-    out_path = args.split_dir
+    out_path = args.sort_dir
     input_path = args.input_dir
     experiment_behavior_csv = args.input_dir + args.experiment + '_behavior.csv'
     df = pd.read_csv(experiment_behavior_csv)
