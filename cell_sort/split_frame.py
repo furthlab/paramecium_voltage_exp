@@ -43,28 +43,6 @@ def get_args():
     parser.add_argument('--split-dir', type=str, default='../split_frame',help='directory to split files', dest='split_dir')
     return parser.parse_args()
 
-
-def group_by_concept_type(data, number_of_concept_type):
-    number_of_concept_type = int(number_of_concept_type)
-    list_of_empty_lists = [[] for _ in range(number_of_concept_type)]
-
-    for entry in data:
-        concept_type = entry.get('concept_type')
-        if concept_type is not None:
-            try:
-                concept_type_index = int(concept_type)
-                if 0 <= concept_type_index < number_of_concept_type:
-                    list_of_empty_lists[concept_type_index].append(entry)
-                else:
-                    print(f"Skipping entry with invalid concept_type (out of range): {concept_type} in entry {entry}")
-            except ValueError:
-                print(f"Skipping entry with non-integer concept_type: {concept_type} in entry {entry}")
-        else:
-            print(f"Skipping entry with no concept_type found: {entry}")
-
-    return list_of_empty_lists
-
-
 def save_lists_to_files(list_of_lists, output_path):
     os.makedirs(output_path, exist_ok=True)
     for i, lst in enumerate(list_of_lists):
