@@ -39,9 +39,8 @@ def logger_setup():
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--json-dir', type=str, default='data/gt',help='directory of the rinsed json files', dest='json_dir')
-    parser.add_argument('--filtered-dir', type=str, default='data/filtered/',help='directory to split concept files', dest='filtered_dir')
-    parser.add_argument('--concept-number', type=str, default='15',help='how many concepts', dest='concept_number')
+    parser.add_argument('--input-dir', type=str, default='../gt',help='directory of the rinsed json files', dest='json_dir')
+    parser.add_argument('--output-dir', type=str, default='data/filtered/',help='directory to split concept files', dest='filtered_dir')
     return parser.parse_args()
 
 
