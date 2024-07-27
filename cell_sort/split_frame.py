@@ -54,24 +54,5 @@ def save_lists_to_files(list_of_lists, output_path):
 if __name__ == "__main__":
     args = get_args()
     print(os.getcwd())
-    out_path = args.filtered_dir
-    input_path = args.json_dir
-    json_data = []
-    number_of_concept = args.concept_number
-
-    for filename in os.listdir(input_path):
-        if filename.endswith('.json'):
-            filepath = os.path.join(input_path, filename)
-            with open(filepath, 'r') as file:
-                try:
-                    data = json.load(file)
-                    json_data.append(data)
-                except json.JSONDecodeError as e:
-                    print(f"Error decoding JSON from file {filepath}: {e}")
-
-    merge = []
-    for data in json_data:
-        merge = merge + data
-
-    split_data = group_by_concept_type(merge, number_of_concept)
-    save_lists_to_files(split_data, out_path)
+    out_path = args.split_dir
+    input_path = args.input_dir
