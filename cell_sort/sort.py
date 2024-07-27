@@ -55,10 +55,10 @@ def split_frame(df):
     for frame_id, group in grouped:
         # Create a filename for each frame group
         filename = f'frame_{frame_id}.csv'
-        filename = osp.join(args.split_dir, filename)
+        # filename = osp.join(args.split_dir, filename)
         # Save the group to a CSV file
-        group.to_csv(filename, index=False)
-        print(f'Saved {filename}')
+        # group.to_csv(filename, index=False)
+        print(f'show {filename}')
 
 
 if __name__ == "__main__":
@@ -69,4 +69,3 @@ if __name__ == "__main__":
     experiment_behavior_csv = args.input_dir + args.experiment + '_behavior.csv'
     print(experiment_behavior_csv)
     df = pd.read_csv(experiment_behavior_csv)
-    split_frame(df)
