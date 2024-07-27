@@ -42,15 +42,16 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--experiment', type=str, default='1000mV_Sample00',help='directory of to be split files', dest='experiment')
     parser.add_argument('--input-dir', type=str, default='../processed/',help='directory of to be split files', dest='input_dir')
-    parser.add_argument('--split-dir', type=str, default='../cell_sort/split_frame/',help='directory to split files', dest='split_dir')
+    parser.add_argument('--split-dir', type=str, default='../cell_sort/sort/',help='directory to split files', dest='split_dir')
     return parser.parse_args()
 
-def split_frame(df):
+def sort(df):
     # Group by the 'frame' column
     grouped = df.groupby('frame')
     args.split_dir = args.split_dir + args.experiment + '/'
     print(args.split_dir)
     os.makedirs(args.split_dir, exist_ok=True)
+    print(grouped.head())
     # Iterate through each group and save to a separate CSV file
     for frame_id, group in grouped:
         # Create a filename for each frame group
@@ -58,7 +59,7 @@ def split_frame(df):
         # filename = osp.join(args.split_dir, filename)
         # Save the group to a CSV file
         # group.to_csv(filename, index=False)
-        print(f'show {filename}')
+        # print(f'show {filename}')
 
 
 if __name__ == "__main__":
@@ -67,5 +68,6 @@ if __name__ == "__main__":
     out_path = args.split_dir
     input_path = args.input_dir
     experiment_behavior_csv = args.input_dir + args.experiment + '_behavior.csv'
-    print(experiment_behavior_csv)
+    # print(experiment_behavior_csv)
     df = pd.read_csv(experiment_behavior_csv)
+    sort(df)
