@@ -43,6 +43,8 @@ def main():
     grouped = combined_df.groupby('frame')
     group_5 = grouped.get_group(5)
     print(group_5)
+    list_of_cells = []
+
     for _, row in group_5.iterrows():
         box_info = {
             'frame': row['frame'],
@@ -57,6 +59,7 @@ def main():
             'velocity': row['velocity']
         }
         cell = Cell(box_info)
+        list_of_cells.append(cell)
 
     # Iterate through each frame's data
     for frame_id, group in grouped:
@@ -74,6 +77,7 @@ def main():
                 'velocity': row['velocity']
             }
 
+    print(list_of_cells)
 
 if __name__ == "__main__":
     main()
