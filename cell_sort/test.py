@@ -41,8 +41,22 @@ def main():
     combined_df = pd.concat(data, ignore_index=True)
     # Group data by frame to ensure chronological order of frames
     grouped = combined_df.groupby('frame')
-    group_2 = grouped.get_group(2)
-    print(group_2)
+    group_5 = grouped.get_group(5)
+    print(group_5)
+    for _, row in group_5.iterrows():
+        box_info = {
+            'frame': row['frame'],
+            'ID': row['ID'],
+            'xmin': row['xmin'],
+            'ymin': row['ymin'],
+            'xmax': row['xmax'],
+            'ymax': row['ymax'],
+            'remove': row['remove'],
+            'x': row['x'],
+            'y': row['y'],
+            'velocity': row['velocity']
+        }
+        cell = Cell(box_info)
     # Iterate through each frame's data
     for frame_id, group in grouped:
         for _, row in group.iterrows():
