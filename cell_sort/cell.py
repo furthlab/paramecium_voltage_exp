@@ -59,13 +59,14 @@ class Cell:
         """
         self.frames.append(Frame(**frame_info))
 
-    def distance_to(self, other, frame_index=-1):
+    def distance_to(self, other):
         """
         Calculate the distance to another cell based on the specified frame index.
         Defaults to the latest frame if frame_index is not provided.
+        :rtype: object
         """
-        x1, y1 = self.frames[frame_index].x, self.frames[frame_index].y
-        x2, y2 = other.frames[frame_index].x, other.frames[frame_index].y
+        x1, y1 = self.frames[-1].x, self.frames[-1].y
+        x2, y2 = other.x, other.y
         return math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
 
     def find_nearest(self, group, frame_index=-1):
@@ -73,15 +74,8 @@ class Cell:
         Find the nearest cell in the next frame based on the specified frame index.
         Defaults to the latest frame if frame_index is not provided.
         """
-        nearest_cell = None
+        nearest_box = None
         min_distance = float('inf')
-        current_frame = self.frames[-1]
-
-        for cell in next_frame_cells:
-            distance = current_cell.distance_to(frame, frame_index)
-            if distance < min_distance:
-                min_distance = distance
-                nearest_cell = cell
 
         for _, row in group.iterrows():
             box_info = {
@@ -96,5 +90,9 @@ class Cell:
                 'y': row['y'],
                 'velocity': row['velocity']
             }
+            distance = self.distance_to(box_info)
+            if distance < min_distance:
+                min_distance = distance
+                nearest_box = box_info
 
-        return nearest_cell
+        return nearest_box
