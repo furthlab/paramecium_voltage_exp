@@ -66,7 +66,7 @@ class Cell:
         :rtype: object
         """
         x1, y1 = self.frames[-1].x, self.frames[-1].y
-        x2, y2 = other.x, other.y
+        x2, y2 = other['x'], other['y']
         return math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
 
     def find_nearest(self, group, frame_index=-1):
