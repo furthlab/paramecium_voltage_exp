@@ -41,11 +41,10 @@ def main():
     combined_df = pd.concat(data, ignore_index=True)
     # Group data by frame to ensure chronological order of frames
     grouped = combined_df.groupby('frame')
-    group_5 = grouped.get_group(5)
-    print(group_5)
+    group_2 = grouped.get_group(2)
     list_of_cells = []
 
-    for _, row in group_5.iterrows():
+    for _, row in group_2.iterrows():
         box_info = {
             'frame': row['frame'],
             'ID': row['ID'],
@@ -68,6 +67,9 @@ def main():
             next_frame = cell.find_nearest(group)
             cell.add_frame_info(next_frame)
             list_of_cells[i] = cell
+
+    for cell in list_of_cells:
+        print(cell)
 
 if __name__ == "__main__":
     main()
