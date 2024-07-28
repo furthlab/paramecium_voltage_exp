@@ -57,6 +57,7 @@ def main():
             'velocity': row['velocity']
         }
         cell = Cell(box_info)
+
     # Iterate through each frame's data
     for frame_id, group in grouped:
         for _, row in group.iterrows():
