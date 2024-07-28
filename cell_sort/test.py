@@ -16,14 +16,14 @@ def load_data_from_csv():
     # Example usage with the given files
     print(os.getcwd())
     file_paths = [
-        '/mnt/data/frame_2.csv',
-        '/mnt/data/frame_3.csv',
-        '/mnt/data/frame_4.csv',
-        '/mnt/data/frame_5.csv',
-        '/mnt/data/frame_6.csv',
-        '/mnt/data/frame_7.csv',
-        '/mnt/data/frame_8.csv',
-        '/mnt/data/frame_9.csv'
+        'example_group/frame_2.csv',
+        'example_group/frame_3.csv',
+        'example_group/frame_4.csv',
+        'example_group/frame_5.csv',
+        'example_group/frame_6.csv',
+        'example_group/frame_7.csv',
+        'example_group/frame_8.csv',
+        'example_group/frame_9.csv'
     ]
     data_frames = {}
     for file in file_paths:
@@ -36,18 +36,7 @@ def load_data_from_csv():
 
 def main():
     # Sample data in dictionary form to simulate a CSV file load
-    data = [
-        {'frame': 1, 'ID': 1, 'xmin': 10, 'ymin': 20, 'xmax': 30, 'ymax': 40, 'remove': False, 'x': 20, 'y': 30,
-         'velocity': 5},
-        {'frame': 2, 'ID': 1, 'xmin': 15, 'ymin': 25, 'xmax': 35, 'ymax': 45, 'remove': False, 'x': 25, 'y': 35,
-         'velocity': 5},
-        {'frame': 1, 'ID': 2, 'xmin': 50, 'ymin': 60, 'xmax': 70, 'ymax': 80, 'remove': False, 'x': 60, 'y': 70,
-         'velocity': 3},
-        {'frame': 2, 'ID': 2, 'xmin': 55, 'ymin': 65, 'xmax': 75, 'ymax': 85, 'remove': False, 'x': 65, 'y': 75,
-         'velocity': 3},
-        {'frame': 2, 'ID': 3, 'xmin': 100, 'ymin': 110, 'xmax': 120, 'ymax': 130, 'remove': False, 'x': 110, 'y': 120,
-         'velocity': 2}
-    ]
+    data = load_data_from_csv()
 
     # Convert to DataFrame
     df = pd.DataFrame(data)
