@@ -68,14 +68,21 @@ class Cell:
         x2, y2 = other.frames[frame_index].x, other.frames[frame_index].y
         return math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
 
-    @staticmethod
-    def find_nearest(current_cell, group, frame_index=-1):
+    def find_nearest(self, group, frame_index=-1):
         """
         Find the nearest cell in the next frame based on the specified frame index.
         Defaults to the latest frame if frame_index is not provided.
         """
-        nearest_box = None
+        nearest_cell = None
         min_distance = float('inf')
+        current_frame = self.frames[-1]
+
+        for cell in next_frame_cells:
+            distance = current_cell.distance_to(frame, frame_index)
+            if distance < min_distance:
+                min_distance = distance
+                nearest_cell = cell
+
         for _, row in group.iterrows():
             box_info = {
                 'frame': row['frame'],
@@ -89,4 +96,5 @@ class Cell:
                 'y': row['y'],
                 'velocity': row['velocity']
             }
-        return nearest_box
+
+        return nearest_cell
