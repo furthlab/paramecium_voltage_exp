@@ -48,12 +48,37 @@ def get_args():
 
 def sort(df):
     # Group by the 'frame' column
+
     grouped = df.groupby('frame')
-    example_data_set = os.getcwd() + '/example_group/'
-    os.makedirs(example_data_set, exist_ok=True)
+    group_2 = grouped.get_group(2)
+    list_of_cells = []
+
+    for _, row in group_2.iterrows():
+        box_info = {
+            'frame': row['frame'],
+            'ID': row['ID'],
+            'xmin': row['xmin'],
+            'ymin': row['ymin'],
+            'xmax': row['xmax'],
+            'ymax': row['ymax'],
+            'remove': row['remove'],
+            'x': row['x'],
+            'y': row['y'],
+            'velocity': row['velocity']
+        }
+        cell = Cell(box_info)
+        list_of_cells.append(cell)
+
+    # Iterate through each frame's data
     for frame_id, group in grouped:
-        filename = f'frame_{frame_id}.csv'
-        group.to_csv(example_data_set + filename, index=False)
+        for i in range(len(list_of_cells)):
+            cell = list_of_cells[i]
+            next_frame = cell.find_nearest(group)
+            cell.add_frame_info(next_frame)
+            list_of_cells[i] = cell
+
+    for cell in list_of_cells:
+        print(cell)
 
 if __name__ == "__main__":
     args = get_args()
