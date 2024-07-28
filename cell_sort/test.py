@@ -60,15 +60,5 @@ def main():
                 'velocity': row['velocity']
             }
 
-            if row['ID'] in cells_dict:
-                # Add frame information to the existing Cell object
-                cells_dict[row['ID']].add_frame_info(cell_info)
-            else:
-                # Create a new Cell object with the initial frame information
-                cells_dict[row['ID']] = Cell(cell_info)
-
-    current_frame_id = 1
-    next_frame_id = current_frame_id + 1
-
 if __name__ == "__main__":
     main()
