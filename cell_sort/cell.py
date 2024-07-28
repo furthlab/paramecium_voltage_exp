@@ -32,7 +32,6 @@ class Frame:
             'velocity': self.velocity
         }
 
-
 class Cell:
     def __init__(self, initial_frame_info):
         """
