@@ -11,6 +11,7 @@ import time
 import os
 import re
 import pandas as pd
+from cell import Cell
 
 def logger_setup():
     """ logger_setup

@@ -67,9 +67,9 @@ def main():
             next_frame = cell.find_nearest(group)
             cell.add_frame_info(next_frame)
             list_of_cells[i] = cell
-
+    path = os.getcwd()
     for cell in list_of_cells:
-        print(cell)
+        cell.save(path)
 
 if __name__ == "__main__":
     main()
