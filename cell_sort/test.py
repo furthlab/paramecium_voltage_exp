@@ -42,10 +42,10 @@ def main():
     # Group data by frame to ensure chronological order of frames
     grouped = combined_df.groupby('frame')
 
-    print(grouped.head())
-
     # Iterate through each frame's data
     for frame_id, group in grouped:
+        print(frame_id)
+        print(group)
         for _, row in group.iterrows():
             box_info = {
                 'frame': row['frame'],
@@ -59,7 +59,7 @@ def main():
                 'y': row['y'],
                 'velocity': row['velocity']
             }
-            print(box_info)
+
 
 if __name__ == "__main__":
     main()
