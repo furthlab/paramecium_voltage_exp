@@ -1,6 +1,38 @@
+import os
+
 from cell import Cell
 import pandas as pd
 
+def load_data_from_csv():
+    """
+    Load data from a list of CSV files and return a dictionary of DataFrames.
+
+    Parameters:
+    filenames (list of str): List of file paths to the CSV files.
+
+    Returns:
+    dict: Dictionary where the keys are file names and values are DataFrames.
+    """
+    # Example usage with the given files
+    print(os.getcwd())
+    file_paths = [
+        '/mnt/data/frame_2.csv',
+        '/mnt/data/frame_3.csv',
+        '/mnt/data/frame_4.csv',
+        '/mnt/data/frame_5.csv',
+        '/mnt/data/frame_6.csv',
+        '/mnt/data/frame_7.csv',
+        '/mnt/data/frame_8.csv',
+        '/mnt/data/frame_9.csv'
+    ]
+    data_frames = {}
+    for file in file_paths:
+        try:
+            df = pd.read_csv(file)
+            data_frames[file] = df
+        except Exception as e:
+            print(f"Error loading {file}: {e}")
+    return data_frames
 
 def main():
     # Sample data in dictionary form to simulate a CSV file load
