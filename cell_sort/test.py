@@ -37,7 +37,7 @@ def load_data_from_csv():
 def main():
     # Sample data in dictionary form to simulate a CSV file load
     data = load_data_from_csv()
-
+    number_of_cells = 5
     combined_df = pd.concat(data, ignore_index=True)
     # Group data by frame to ensure chronological order of frames
     grouped = combined_df.groupby('frame')
@@ -47,7 +47,7 @@ def main():
     # Iterate through each frame's data
     for frame_id, group in grouped:
         for _, row in group.iterrows():
-            cell_info = {
+            box_info = {
                 'frame': row['frame'],
                 'ID': row['ID'],
                 'xmin': row['xmin'],
@@ -59,6 +59,7 @@ def main():
                 'y': row['y'],
                 'velocity': row['velocity']
             }
+            print(box_info)
 
 if __name__ == "__main__":
     main()
