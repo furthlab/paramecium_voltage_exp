@@ -63,21 +63,11 @@ def main():
 
     # Iterate through each frame's data
     for frame_id, group in grouped:
-        for _, row in group.iterrows():
-            box_info = {
-                'frame': row['frame'],
-                'ID': row['ID'],
-                'xmin': row['xmin'],
-                'ymin': row['ymin'],
-                'xmax': row['xmax'],
-                'ymax': row['ymax'],
-                'remove': row['remove'],
-                'x': row['x'],
-                'y': row['y'],
-                'velocity': row['velocity']
-            }
-
-    print(list_of_cells)
+        for i in range(len(list_of_cells)):
+            cell = list_of_cells[i]
+            next_frame = cell.find_nearest(group)
+            cell.add_frame_info(next_frame)
+            list_of_cells[i] = cell
 
 if __name__ == "__main__":
     main()
