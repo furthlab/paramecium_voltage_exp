@@ -1,0 +1,112 @@
+{
+    "frames": [
+        {
+            "frame": 2,
+            "ID": 13,
+            "xmin": 321,
+            "ymin": 311,
+            "xmax": 353,
+            "ymax": 323,
+            "remove": false,
+            "x": 337.0,
+            "y": 317.0,
+            "velocity": 7.61577310586391
+        },
+        {
+            "frame": 2,
+            "ID": 13,
+            "xmin": 321,
+            "ymin": 311,
+            "xmax": 353,
+            "ymax": 323,
+            "remove": false,
+            "x": 337.0,
+            "y": 317.0,
+            "velocity": 7.61577310586391
+        },
+        {
+            "frame": 3,
+            "ID": 13,
+            "xmin": 315,
+            "ymin": 308,
+            "xmax": 345,
+            "ymax": 320,
+            "remove": false,
+            "x": 330.0,
+            "y": 314.0,
+            "velocity": 7.61577310586391
+        },
+        {
+            "frame": 4,
+            "ID": 13,
+            "xmin": 310,
+            "ymin": 307,
+            "xmax": 339,
+            "ymax": 318,
+            "remove": false,
+            "x": 324.5,
+            "y": 312.5,
+            "velocity": 5.70087712549569
+        },
+        {
+            "frame": 5,
+            "ID": 13,
+            "xmin": 304,
+            "ymin": 306,
+            "xmax": 329,
+            "ymax": 316,
+            "remove": false,
+            "x": 316.5,
+            "y": 311.0,
+            "velocity": 8.13941029804985
+        },
+        {
+            "frame": 6,
+            "ID": 13,
+            "xmin": 296,
+            "ymin": 306,
+            "xmax": 320,
+            "ymax": 315,
+            "remove": false,
+            "x": 308.0,
+            "y": 310.5,
+            "velocity": 8.5146931829632
+        },
+        {
+            "frame": 7,
+            "ID": 13,
+            "xmin": 288,
+            "ymin": 305,
+            "xmax": 314,
+            "ymax": 315,
+            "remove": false,
+            "x": 301.0,
+            "y": 310.0,
+            "velocity": 7.0178344238091
+        },
+        {
+            "frame": 8,
+            "ID": 13,
+            "xmin": 280,
+            "ymin": 305,
+            "xmax": 306,
+            "ymax": 315,
+            "remove": false,
+            "x": 293.0,
+            "y": 310.0,
+            "velocity": 8.0
+        },
+        {
+            "frame": 9,
+            "ID": 13,
+            "xmin": 272,
+            "ymin": 306,
+            "xmax": 298,
+            "ymax": 316,
+            "remove": false,
+            "x": 285.0,
+            "y": 311.0,
+            "velocity": 8.06225774829855
+        }
+    ]
+}
