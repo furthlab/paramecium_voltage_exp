@@ -47,7 +47,7 @@ def get_args():
     return parser.parse_args()
 
 
-def sort(df):
+def sort(df, path):
     # Group by the 'frame' column
 
     grouped = df.groupby('frame')
@@ -70,16 +70,20 @@ def sort(df):
         cell = Cell(box_info)
         list_of_cells.append(cell)
 
+    print('Cell list instantiated')
+
     # Iterate through each frame's data
     for frame_id, group in grouped:
+        print('Working on frame {}'.format(frame_id))
         for i in range(len(list_of_cells)):
             cell = list_of_cells[i]
             next_frame = cell.find_nearest(group)
             cell.add_frame_info(next_frame)
             list_of_cells[i] = cell
 
-    for cell in list_of_cells:
-        print(cell)
+    for i in range(len(list_of_cells)):
+        cell = list_of_cells[i]
+        cell.save(os.path.join(path, f'cell_{i}.json'))
 
 if __name__ == "__main__":
     args = get_args()
@@ -88,4 +92,4 @@ if __name__ == "__main__":
     input_path = args.input_dir
     experiment_behavior_csv = args.input_dir + args.experiment + '_behavior.csv'
     df = pd.read_csv(experiment_behavior_csv)
-    sort(df)
+    sort(df, out_path)
