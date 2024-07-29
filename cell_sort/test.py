@@ -67,9 +67,10 @@ def main():
             next_frame = cell.find_nearest(group)
             cell.add_frame_info(next_frame)
             list_of_cells[i] = cell
-    path = os.getcwd()
-    for cell in list_of_cells:
-        cell.save(path)
+    path = os.getcwd() + '/example_group/'
+    for i in range(len(list_of_cells)):
+        cell = list_of_cells[i]
+        cell.save(os.path.join(path, f'cell_{i}.json'))
 
 if __name__ == "__main__":
     main()
