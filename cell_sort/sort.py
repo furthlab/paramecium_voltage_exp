@@ -91,4 +91,6 @@ if __name__ == "__main__":
     input_path = args.input_dir
     experiment_behavior_csv = args.input_dir + args.experiment + '_behavior.csv'
     df = pd.read_csv(experiment_behavior_csv)
+    out_path = out_path + args.experiment + '/'
+    os.makedirs(out_path, exist_ok=True)
     sort(df, out_path)
