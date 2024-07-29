@@ -112,13 +112,10 @@ class Cell:
         """
         with open(path, 'r') as file:
             data = json.load(file)
-
         # Create a new Cell instance
         frames = data['frames']
         cell = cls(frames[0])
-
         # Add the rest of the frames
         for frame_info in frames[1:]:
             cell.add_frame_info(frame_info)
-
         return cell

@@ -46,7 +46,6 @@ def get_args():
     parser.add_argument('--sort-dir', type=str, default='../cell_sort/sort/',help='directory to split files', dest='sort_dir')
     return parser.parse_args()
 
-
 def sort(df, path):
     # Group by the 'frame' column
 
