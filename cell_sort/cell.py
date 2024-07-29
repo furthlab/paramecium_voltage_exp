@@ -1,4 +1,5 @@
 import math
+import json
 
 class Frame:
     def __init__(self, frame, ID, xmin, ymin, xmax, ymax, remove, x, y, velocity):
@@ -96,3 +97,28 @@ class Cell:
                 nearest_box = box_info
 
         return nearest_box
+
+    def save(self, path):
+        """
+        Save the Cell's data to a JSON file at the specified path.
+        """
+        with open(path, 'w') as file:
+            json.dump(self.to_dict(), file, indent=4)
+
+    @classmethod
+    def read(cls, path):
+        """
+        Read the Cell's data from a JSON file at the specified path.
+        """
+        with open(path, 'r') as file:
+            data = json.load(file)
+
+        # Create a new Cell instance
+        frames = data['frames']
+        cell = cls(frames[0])
+
+        # Add the rest of the frames
+        for frame_info in frames[1:]:
+            cell.add_frame_info(frame_info)
+
+        return cell
