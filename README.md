@@ -306,3 +306,21 @@ plot.velocity(velTRC, logTRC)
 ```
 
 ![](README_files/figure-commonmark/unnamed-chunk-16-1.png)
+
+## Overview of the data.
+
+Hokin Deng
+
+The basic idea is that we need to establish a data line for 
+each cell. 
+
+I created a folder in the repo, "cell_sort", for this purpose. 
+
+There are general two stages of processing in order to achieve
+this purpose in my mind right now. First, I will write a split frame
+python function to split the processed data files into each frame.
+Then, I shall create a cell.py that contain each cell objects. 
+Next, I should write a parsing function that determines the number of
+cells that the parsing wants to create given that instance of parsing. 
+The outcome of this pipeline should be a folder of cell.cvs which document
+the trajectory of each cell in each frame. 

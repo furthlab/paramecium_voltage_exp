@@ -1,0 +1,112 @@
+{
+    "frames": [
+        {
+            "frame": 2,
+            "ID": 25,
+            "xmin": 58,
+            "ymin": 164,
+            "xmax": 88,
+            "ymax": 176,
+            "remove": false,
+            "x": 73.0,
+            "y": 170.0,
+            "velocity": 2.54950975679639
+        },
+        {
+            "frame": 2,
+            "ID": 25,
+            "xmin": 58,
+            "ymin": 164,
+            "xmax": 88,
+            "ymax": 176,
+            "remove": false,
+            "x": 73.0,
+            "y": 170.0,
+            "velocity": 2.54950975679639
+        },
+        {
+            "frame": 3,
+            "ID": 25,
+            "xmin": 60,
+            "ymin": 163,
+            "xmax": 91,
+            "ymax": 176,
+            "remove": false,
+            "x": 75.5,
+            "y": 169.5,
+            "velocity": 2.54950975679639
+        },
+        {
+            "frame": 4,
+            "ID": 25,
+            "xmin": 62,
+            "ymin": 163,
+            "xmax": 93,
+            "ymax": 176,
+            "remove": false,
+            "x": 77.5,
+            "y": 169.5,
+            "velocity": 2.0
+        },
+        {
+            "frame": 5,
+            "ID": 25,
+            "xmin": 64,
+            "ymin": 163,
+            "xmax": 97,
+            "ymax": 177,
+            "remove": false,
+            "x": 80.5,
+            "y": 170.0,
+            "velocity": 3.04138126514911
+        },
+        {
+            "frame": 6,
+            "ID": 25,
+            "xmin": 67,
+            "ymin": 165,
+            "xmax": 100,
+            "ymax": 178,
+            "remove": false,
+            "x": 83.5,
+            "y": 171.5,
+            "velocity": 3.35410196624968
+        },
+        {
+            "frame": 7,
+            "ID": 25,
+            "xmin": 69,
+            "ymin": 165,
+            "xmax": 105,
+            "ymax": 180,
+            "remove": false,
+            "x": 87.0,
+            "y": 172.5,
+            "velocity": 3.64005494464026
+        },
+        {
+            "frame": 8,
+            "ID": 31,
+            "xmin": 91,
+            "ymin": 166,
+            "xmax": 101,
+            "ymax": 189,
+            "remove": false,
+            "x": 96.0,
+            "y": 177.5,
+            "velocity": 10.4043260233424
+        },
+        {
+            "frame": 9,
+            "ID": 31,
+            "xmin": 89,
+            "ymin": 171,
+            "xmax": 103,
+            "ymax": 203,
+            "remove": false,
+            "x": 96.0,
+            "y": 187.0,
+            "velocity": 9.5
+        }
+    ]
+}
